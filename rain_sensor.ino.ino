@@ -1,42 +1,19 @@
-
-/*
-
-
-
-Agu 2018
-Author: Sarful hassan
-Website: https://mechatronicslabrpi.blogspot.com
-
-*/ 
-
-
-
 //library esp
 #include <ESP8266WiFi.h>
 const char* ssid = "rowsoni";                                  //fill in your wifi name
 const char* password = "007892057";                              //fill in your wifi password
-
-
 WiFiClient client;
-
 int sensorPin = A0;    // input for LDR and rain sensor
 int enable2 = 13;      // enable reading Rain sensor
 int sensorValue2 = 0;  // variable to store the value coming from sensor Rain sensor
 
-
 //--------------------------setup-------------------------
 void setup() {
-
 // declare the enable and ledPin as an OUTPUT:
 pinMode(enable2, OUTPUT);
-
-  
 Serial.begin(115200);
 delay(10);
-
-
 WiFi.begin(ssid, password);
-
 Serial.println();
 Serial.println();
 Serial.print("Connecting to ");
@@ -51,18 +28,8 @@ delay(500);
 }
 Serial.println("WiFi connected");
 Serial.println();
-
 }
-
-
 void loop() {
-
-
-
-//--------------------------Rain Sensor-------------------------
-
-
-
 delay(500);
 sensorValue2 = analogRead(sensorPin);
 sensorValue2 = constrain(sensorValue2, 150, 440); 
@@ -83,8 +50,4 @@ digitalWrite(enable2, HIGH);
 //Serial.println(sensorValue2);
 Serial.println();
 delay(100);
-
-
-
 }
-
